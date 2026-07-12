@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySyncAI | Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a class="brand" href="index.html">
+          <span class="brand-badge"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>StudySync AI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="assignments.html">Assignments</a>
+          <a href="exams.html">Exams</a>
+          <a class="active" href="calendar.html">Calendar</a>
+          <a href="assistant.html">AI Study Coach</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="resources.html">Resources</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="theme-toggle ripple" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+          <a class="btn btn-outline" href="profile.html">Profile</a>
+          <a class="btn btn-primary ripple" href="calendar.html">View Month</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section-heading">
+        <div>
+          <p class="badge"><i class="fa-solid fa-calendar-days"></i> Study Calendar</p>
+          <h2>Visualize assignments, exams, and study sessions</h2>
+        </div>
+      </section>
+
+      <section class="card panel fade-in">
+        <div class="section-heading">
+          <h3 id="calendarMonthLabel">Calendar</h3>
+          <div class="hero-actions">
+            <span class="tag tag-blue">Homework</span>
+            <span class="tag tag-orange">Assignments</span>
+            <span class="tag tag-red">Exams</span>
+            <span class="tag tag-green">Completed</span>
+          </div>
+        </div>
+        <div class="summary-card" style="margin-bottom: 16px;">
+          <div class="small-text">AI-generated calendar events</div>
+          <div id="calendarEvents"></div>
+        </div>
+        <div id="calendarGrid" class="calendar-grid">
+          <div class="day-cell"><strong>Mon</strong></div>
+          <div class="day-cell"><strong>Tue</strong></div>
+          <div class="day-cell"><strong>Wed</strong></div>
+          <div class="day-cell"><strong>Thu</strong></div>
+          <div class="day-cell"><strong>Fri</strong></div>
+          <div class="day-cell"><strong>Sat</strong></div>
+          <div class="day-cell"><strong>Sun</strong></div>
+          <div class="day-cell muted"><span>29</span></div>
+          <div class="day-cell muted"><span>30</span></div>
+          <div class="day-cell"><span>1</span><div class="dot-group"><span class="dot tag-blue"></span><span class="dot tag-orange"></span></div></div>
+          <div class="day-cell"><span>2</span><div class="dot-group"><span class="dot tag-green"></span></div></div>
+          <div class="day-cell"><span>3</span><div class="dot-group"><span class="dot tag-red"></span></div></div>
+          <div class="day-cell"><span>4</span></div>
+          <div class="day-cell"><span>5</span><div class="dot-group"><span class="dot tag-blue"></span></div></div>
+          <div class="day-cell"><span>6</span></div>
+          <div class="day-cell"><span>7</span><div class="dot-group"><span class="dot tag-orange"></span></div></div>
+          <div class="day-cell"><span>8</span></div>
+          <div class="day-cell"><span>9</span><div class="dot-group"><span class="dot tag-red"></span><span class="dot tag-green"></span></div></div>
+          <div class="day-cell"><span>10</span></div>
+          <div class="day-cell"><span>11</span></div>
+          <div class="day-cell"><span>12</span></div>
+          <div class="day-cell"><span>13</span><div class="dot-group"><span class="dot tag-blue"></span></div></div>
+          <div class="day-cell"><span>14</span></div>
+          <div class="day-cell"><span>15</span><div class="dot-group"><span class="dot tag-orange"></span><span class="dot tag-blue"></span></div></div>
+          <div class="day-cell"><span>16</span></div>
+          <div class="day-cell"><span>17</span></div>
+          <div class="day-cell"><span>18</span></div>
+          <div class="day-cell"><span>19</span><div class="dot-group"><span class="dot tag-red"></span></div></div>
+          <div class="day-cell"><span>20</span></div>
+          <div class="day-cell"><span>21</span></div>
+          <div class="day-cell"><span>22</span></div>
+          <div class="day-cell"><span>23</span><div class="dot-group"><span class="dot tag-green"></span></div></div>
+          <div class="day-cell"><span>24</span></div>
+          <div class="day-cell"><span>25</span></div>
+          <div class="day-cell"><span>26</span><div class="dot-group"><span class="dot tag-orange"></span></div></div>
+          <div class="day-cell"><span>27</span></div>
+          <div class="day-cell"><span>28</span></div>
+          <div class="day-cell"><span>29</span></div>
+          <div class="day-cell"><span>30</span></div>
+          <div class="day-cell"><span>31</span><div class="dot-group"><span class="dot tag-blue"></span></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>StudySync AI • Calendar for focused planning.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

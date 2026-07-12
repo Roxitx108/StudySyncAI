@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySyncAI | Study Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a class="brand" href="index.html">
+          <span class="brand-badge"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>StudySyncAI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="assignments.html">Assignments</a>
+          <a href="exams.html">Exams</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="assistant.html">AI Study Coach</a>
+          <a href="analytics.html">Analytics</a>
+          <a class="active" href="resources.html">Resources</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="theme-toggle ripple" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+          <a class="btn btn-outline" href="profile.html">Profile</a>
+          <a class="btn btn-primary ripple" href="resources.html">Browse Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section-heading">
+        <div>
+          <p class="badge"><i class="fa-solid fa-book-open"></i> Study Resources</p>
+          <h2>Discover curated materials for every subject</h2>
+        </div>
+      </section>
+
+      <section class="card panel fade-in" style="margin-bottom:18px;">
+        <div class="section-heading">
+          <h3>Add your own notes or PDF files</h3>
+        </div>
+        <form id="resourceForm" class="form-grid">
+          <div class="form-field">
+            <label>Title</label>
+            <input name="resourceTitle" type="text" placeholder="e.g. Network revision summary" required />
+          </div>
+          <div class="form-field">
+            <label>Subject</label>
+            <input name="resourceSubject" type="text" placeholder="e.g. Networking" />
+          </div>
+          <div class="form-field full">
+            <label>Notes</label>
+            <textarea name="resourceNotes" placeholder="Write your own study notes here..."></textarea>
+          </div>
+          <div class="form-field full">
+            <label>Upload PDF or text file</label>
+            <input id="resourceFile" name="resourceFile" type="file" accept=".pdf,.txt,.md" />
+          </div>
+          <div class="form-field full">
+            <button class="btn btn-primary ripple" type="submit">Add Resource</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card panel fade-in" style="margin-bottom:18px;">
+        <div class="section-heading">
+          <h3>Your added resources</h3>
+        </div>
+        <div id="customResourcesList" class="grid-2"></div>
+      </section>
+
+      <section class="card panel fade-in">
+        <div class="hero-actions" style="margin-bottom:16px;">
+          <input type="text" placeholder="Search resources" />
+          <button class="btn btn-outline ripple">Networking</button>
+          <button class="btn btn-outline ripple">Python</button>
+          <button class="btn btn-outline ripple">Database</button>
+          <button class="btn btn-outline ripple">Mathematics</button>
+          <button class="btn btn-outline ripple">Study Skills</button>
+        </div>
+        <div class="grid-2">
+          <article class="resource-card card-lift">
+            <div class="panel-title">
+              <h3>Networking Essentials</h3>
+              <span class="tag tag-blue">Networking</span>
+            </div>
+            <p class="resource-meta">A concise guide covering core protocols, IP addressing, and practical examples.</p>
+            <div class="small-text" style="margin-top:10px;">
+              <strong>Notes:</strong><br />
+              • IP addressing basics<br />
+              • Common networking protocols<br />
+              • Example of a simple network setup
+            </div>
+          </article>
+          <article class="resource-card card-lift">
+            <div class="panel-title">
+              <h3>Python Practice Pack</h3>
+              <span class="tag tag-green">Python</span>
+            </div>
+            <p class="resource-meta">A collection of beginner-friendly exercises to sharpen your coding confidence.</p>
+            <div class="small-text" style="margin-top:10px;">
+              <strong>Notes:</strong><br />
+              • Variables and data types<br />
+              • Loops and conditionals<br />
+              • Practice with simple functions
+            </div>
+          </article>
+          <article class="resource-card card-lift">
+            <div class="panel-title">
+              <h3>Database Revision Notes</h3>
+              <span class="tag tag-orange">Database</span>
+            </div>
+            <p class="resource-meta">Clear notes on tables, keys, joins, and normalization strategies.</p>
+            <div class="small-text" style="margin-top:10px;">
+              <strong>Notes:</strong><br />
+              • Primary and foreign keys<br />
+              • Inner and outer joins<br />
+              • Normalization basics
+            </div>
+          </article>
+          <article class="resource-card card-lift">
+            <div class="panel-title">
+              <h3>Study Skills Toolkit</h3>
+              <span class="tag tag-red">Study Skills</span>
+            </div>
+            <p class="resource-meta">Helpful techniques for active recall, spaced repetition, and focused planning.</p>
+            <div class="small-text" style="margin-top:10px;">
+              <strong>Notes:</strong><br />
+              • Use active recall daily<br />
+              • Break study sessions into blocks<br />
+              • Review mistakes after each session
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>StudySync AI • Curated resources for every subject.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

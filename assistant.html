@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySyncAI | AI Study Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a class="brand" href="index.html">
+          <span class="brand-badge"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>StudySync AI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="assignments.html">Assignments</a>
+          <a href="exams.html">Exams</a>
+          <a href="calendar.html">Calendar</a>
+          <a class="active" href="assistant.html">AI Study Coach</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="resources.html">Resources</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="theme-toggle ripple" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+          <a class="btn btn-outline" href="profile.html">Profile</a>
+          <a class="btn btn-primary ripple" href="assistant.html">Start Chat</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section-heading">
+        <div>
+          <p class="badge"><i class="fa-solid fa-robot"></i> AI Study Coach</p>
+          <h2>Your planning assistant, ready for future AI integration</h2>
+        </div>
+      </section>
+
+      <section class="chat-shell fade-in">
+        <div class="card chat-card panel">
+          <div class="prompt-row">
+            <button class="prompt-chip ripple" data-prompt="Create today's study schedule">Create today's study schedule</button>
+            <button class="prompt-chip ripple" data-prompt="Help me prepare for Networking">Help me prepare for Networking</button>
+            <button class="prompt-chip ripple" data-prompt="Prioritise my assignments">Prioritise my assignments</button>
+            <button class="prompt-chip ripple" data-prompt="Explain subnetting">Explain subnetting</button>
+            <button class="prompt-chip ripple" data-prompt="Summarise my notes">Summarise my notes</button>
+            <button class="prompt-chip ripple" data-prompt="How many hours should I study today?">How many hours should I study today?</button>
+          </div>
+          <div class="chat-window" style="margin-top:16px;">
+            <div class="chat-bubble">Hello there, I can help you decide what to study next and how to structure your day.</div>
+            <div class="chat-bubble user">Create today's study schedule.</div>
+            <div class="chat-bubble">I recommend 2 focused blocks for Networking, 1 hour for Python, and a short review session before dinner.</div>
+          </div>
+          <div class="chat-input">
+            <input id="chatInput" type="text" placeholder="Ask the study coach anything..." />
+            <button id="sendPrompt" class="btn btn-primary ripple"><i class="fa-solid fa-paper-plane"></i></button>
+            <button id="resetCoach" class="btn btn-outline ripple" type="button"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+          </div>
+        </div>
+
+        <div class="card panel fade-in" style="margin-top: 16px;">
+          <div class="section-heading">
+            <h3>AI-generated study schedule</h3>
+            <span class="tag tag-blue">Auto-updated</span>
+          </div>
+          <div class="summary-card" style="margin-bottom: 12px;">
+            <div class="small-text">Today’s plan summary</div>
+            <strong id="planSummary">Your AI coach will generate a smart study plan here.</strong>
+          </div>
+          <div id="assistantScheduleList" class="timeline-list" data-schedule-list></div>
+        </div>
+
+        <div class="card panel fade-in" style="margin-top: 16px;">
+          <div class="section-heading">
+            <h3>Coach insights</h3>
+            <span class="tag tag-green">Personalized</span>
+          </div>
+          <div class="summary-card" style="margin-bottom: 10px;">
+            <div class="small-text">Current focus</div>
+            <strong id="coachFocus">Loading the best next step...</strong>
+          </div>
+          <div class="summary-card">
+            <div class="small-text">Suggested study tip</div>
+            <strong id="coachTip">Your coach will recommend the smartest next move here.</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>StudySync AI • Chat-first interface for future AI experiences.</p>
+    </footer>
+
+<script src="js/main.js"></script>
+<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+<script
+  src="https://files.bpcontent.cloud/2026/07/11/05/20260711050851-9QJT6755.js"
+  defer>
+</script>
+
+</body>
+</html>

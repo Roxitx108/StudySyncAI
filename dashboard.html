@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySyncAI | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a class="brand" href="index.html">
+          <span class="brand-badge"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>StudySyncAI</span>
+        </a>
+        <nav class="nav-links">
+          <a class="active" href="dashboard.html">Dashboard</a>
+          <a href="assignments.html">Assignments</a>
+          <a href="exams.html">Exams</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="assistant.html">AI Study Coach</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="resources.html">Resources</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="theme-toggle ripple" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+          <a class="btn btn-outline" href="profile.html">Profile</a>
+          <a class="btn btn-primary ripple" href="assistant.html">Ask Coach</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="hero-card focus-card fade-in">
+        <div class="section-heading">
+          <div>
+            <p class="badge"><i class="fa-solid fa-sparkles"></i> Today’s Focus</p>
+            <h2 data-greeting>Good Afternoon, Raja 👋</h2>
+          </div>
+          <button class="btn btn-primary ripple"><i class="fa-solid fa-plus"></i> New Study Block</button>
+        </div>
+        <p>Complete the Networking Lab before 5 PM and keep your preparation steady for the upcoming exams.</p>
+      </section>
+
+      <section class="dashboard-grid" style="margin-top:20px;">
+        <div class="main-grid">
+          <div class="grid-2">
+            <article id="dashboardPriorityPanel" class="card panel card-lift">
+              <div class="panel-title">
+                <h3>Priority Panel</h3>
+                <span class="tag tag-red">High Priority</span>
+              </div>
+              <h4>Networking Assignment</h4>
+              <p class="assignment-meta">Due Tomorrow • Difficulty ★★★★★ • Estimated Time 3 Hours</p>
+              <div class="progress-track" style="margin:12px 0;"><div class="progress-fill" data-progress="40"></div></div>
+              <div class="section-heading">
+                <span class="task-meta">Progress 40%</span>
+                <button class="btn btn-primary ripple">Continue Studying</button>
+              </div>
+            </article>
+            <article id="dashboardUpcomingExams" class="card panel card-lift">
+              <div class="panel-title">
+                <h3>Upcoming Exams</h3>
+                <span class="tag tag-blue">3 this month</span>
+              </div>
+              <div class="list-stack">
+                <div class="task-item">
+                  <div>
+                    <div class="task-title">Networking</div>
+                    <div class="task-meta">5 days remaining • ★★★★★</div>
+                  </div>
+                  <span class="tag tag-red">65% ready</span>
+                </div>
+                <div class="task-item">
+                  <div>
+                    <div class="task-title">Database</div>
+                    <div class="task-meta">12 days remaining • ★★★☆☆</div>
+                  </div>
+                  <span class="tag tag-orange">40% ready</span>
+                </div>
+                <div class="task-item">
+                  <div>
+                    <div class="task-title">Python</div>
+                    <div class="task-meta">20 days remaining • ★★☆☆☆</div>
+                  </div>
+                  <span class="tag tag-green">80% ready</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <article class="card panel card-lift">
+            <div class="panel-title">
+              <h3>Today’s Schedule</h3>
+              <span class="tag tag-green">Balanced</span>
+            </div>
+            <div id="dashboardScheduleList" class="timeline-list" data-schedule-list></div>
+          </article>
+        </div>
+
+        <aside class="sidebar-stack">
+          <article class="card panel card-lift">
+            <div class="panel-title">
+              <h3>Smart Warnings</h3>
+              <i class="fa-solid fa-triangle-exclamation" style="color:var(--warning);"></i>
+            </div>
+            <p class="task-meta">You have 3 deadlines this week. Networking should be prioritised because it is difficult and due soon.</p>
+          </article>
+          <article class="card panel card-lift">
+            <div class="panel-title">
+              <h3>AI Recommendations</h3>
+              <span class="tag tag-blue">Live</span>
+            </div>
+            <div class="list-stack">
+              <div class="task-item"><div class="task-title">Study Networking</div><div class="task-meta">2 hours today</div></div>
+              <div class="task-item"><div class="task-title">Complete Python homework</div><div class="task-meta">Tonight</div></div>
+              <div class="task-item"><div class="task-title">Review subnetting</div><div class="task-meta">30 minutes</div></div>
+              <div class="task-item"><div class="task-title">Take a break</div><div class="task-meta">15 minutes after each Pomodoro</div></div>
+            </div>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>StudySync AI • Student-focused productivity experience.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

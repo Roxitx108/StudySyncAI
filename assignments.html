@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySyncAI | Assignments</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a class="brand" href="index.html">
+          <span class="brand-badge"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>StudySyncAI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a class="active" href="assignments.html">Assignments</a>
+          <a href="exams.html">Exams</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="assistant.html">AI Study Coach</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="resources.html">Resources</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="theme-toggle ripple" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+          <a class="btn btn-outline" href="profile.html">Profile</a>
+          <a class="btn btn-primary ripple" href="assignments.html">Add Task</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section-heading">
+        <div>
+          <p class="badge"><i class="fa-solid fa-list-check"></i> Assignment Dashboard</p>
+          <h2>Manage homework, labs, projects, and tasks</h2>
+        </div>
+        <button id="assignmentAddButton" class="btn btn-primary ripple"><i class="fa-solid fa-plus"></i> Add</button>
+      </section>
+
+      <section class="card panel fade-in">
+        <div class="section-heading">
+          <div class="hero-actions">
+            <input id="assignmentSearch" type="text" placeholder="Search assignments" />
+            <select id="assignmentFilterSelect">
+              <option value="all">All Priorities</option>
+              <option value="High">High Priority</option>
+              <option value="Medium">Medium Priority</option>
+              <option value="Low">Low Priority</option>
+            </select>
+            <select id="assignmentSortSelect">
+              <option value="date">Sort by date</option>
+              <option value="priority">High priority</option>
+              <option value="progress">Most complete</option>
+            </select>
+          </div>
+          <div class="hero-actions">
+            <button id="applyAssignmentFilters" type="button" class="btn btn-outline ripple">Filter</button>
+            <button id="sortAssignments" type="button" class="btn btn-primary ripple">Sort</button>
+          </div>
+        </div>
+        <div id="assignmentsList" class="grid-2"></div>
+      </section>
+
+      <div id="assignmentModal" class="modal-backdrop">
+        <div class="modal-card">
+          <h3 id="assignmentModalTitle">Add Assignment</h3>
+          <form id="assignmentForm">
+            <div class="form-grid">
+              <div class="form-field">
+                <label>Title</label>
+                <input name="title" type="text" required />
+              </div>
+              <div class="form-field">
+                <label>Subject</label>
+                <input name="subject" type="text" required />
+              </div>
+              <div class="form-field">
+                <label>Due Date</label>
+                <input name="dueDate" type="date" required />
+              </div>
+              <div class="form-field">
+                <label>Priority</label>
+                <select name="priority">
+                  <option>High</option>
+                  <option selected>Medium</option>
+                  <option>Low</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label>Difficulty</label>
+                <select name="difficulty">
+                  <option>★★★★★</option>
+                  <option>★★★★☆</option>
+                  <option>★★★☆☆</option>
+                  <option>★★☆☆☆</option>
+                  <option>★☆☆☆☆</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label>Estimated Time</label>
+                <input name="estimatedTime" type="text" placeholder="2 hours" required />
+              </div>
+              <div class="form-field">
+                <label>Completion %</label>
+                <input name="progress" type="number" min="0" max="100" value="0" required />
+              </div>
+              <div class="form-field">
+                <label>Status</label>
+                <select name="status">
+                  <option>In Progress</option>
+                  <option>Almost Ready</option>
+                  <option>Completed</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-actions">
+              <button type="button" id="assignmentCancel" class="btn btn-outline ripple">Cancel</button>
+              <button type="submit" class="btn btn-primary ripple">Save Assignment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer container">
+      <p>StudySync AI • Organized assignment management.</p>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

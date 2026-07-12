@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySyncAI | Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container navbar">
+        <a class="brand" href="index.html">
+          <span class="brand-badge"><i class="fa-solid fa-graduation-cap"></i></span>
+          <span>StudySync AI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="assignments.html">Assignments</a>
+          <a href="exams.html">Exams</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="assistant.html">AI Study Coach</a>
+          <a href="analytics.html">Analytics</a>
+          <a href="resources.html">Resources</a>
+          <a class="active" href="profile.html">Profile</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="theme-toggle ripple" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+          <a class="btn btn-outline" href="profile.html">Profile</a>
+          <a class="btn btn-primary ripple" href="profile.html">Save Changes</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-shell">
+      <section class="section-heading">
+        <div>
+          <p class="badge"><i class="fa-solid fa-user"></i> Student Profile</p>
+          <h2>Personalise your study preferences</h2>
+        </div>
+      </section>
+
+      <section class="profile-card fade-in">
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Student Name</label>
+            <input id="profileName" name="studentName" type="text" value="Raja" />
+          </div>
+          <div class="form-field">
+            <label>School</label>
+            <input id="profileSchool" name="school" type="text" value="Republic Polytechnic" />
+          </div>
+          <div class="form-field">
+            <label>Course</label>
+            <input id="profileCourse" name="course" type="text" value="Information Technology" />
+          </div>
+          <div class="form-field">
+            <label>Daily Study Goal</label>
+            <input id="profileGoal" name="dailyGoal" type="text" value="4 hours" />
+          </div>
+          <div class="form-field">
+            <label>Preferred Study Hours</label>
+            <input id="profileHours" name="preferredStudyHours" type="text" value="9:00 AM - 9:00 PM" />
+          </div>
+          <div class="form-field full">
+            <label>Notification Settings</label>
+            <div class="switch-row"><span>Exam reminders</span><button class="toggle active"></button></div>
+            <div class="switch-row"><span>Deadline alerts</span><button class="toggle active"></button></div>
+            <div class="switch-row"><span>Daily recommendations</span><button class="toggle"></button></div>
+          </div>
+          <div class="form-field full">
+            <label>Dark Mode</label>
+            <div class="switch-row"><span>Enable dark mode</span><button class="toggle"></button></div>
+          </div>
+        </div>
+        <div class="section-heading" style="margin-top:18px;">
+          <span class="task-meta">Future-ready UI for local AI and automation services.</span>
+          <button id="saveProfileBtn" class="btn btn-primary ripple" type="button">Save</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p>StudySync AI • Tailored to your learning preferences.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

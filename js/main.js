@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initModals();
   initProfile();
   initAiCoach();
+  initResources();
 
   if (document.getElementById("assignmentsList")) {
     loadAssignments();
@@ -406,6 +407,72 @@ async function loadExams() {
 // RESOURCES
 // ====================================================================
 
+function initResources() {
+  const resourceForm = document.getElementById("resourceForm");
+
+  if (!resourceForm) {
+    return;
+  }
+
+  resourceForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const submitButton = resourceForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton ? submitButton.textContent : "";
+    const formData = new FormData(resourceForm);
+    const selectedFile = formData.get("resourceFile");
+
+    const resource = {
+      title: String(formData.get("resourceTitle") || "").trim(),
+      subject: String(formData.get("resourceSubject") || "").trim(),
+      notes: String(formData.get("resourceNotes") || "").trim(),
+      file_url:
+        selectedFile instanceof File && selectedFile.name
+          ? selectedFile.name
+          : null
+    };
+
+    if (!resource.title) {
+      alert("Please enter a resource title.");
+      return;
+    }
+
+    try {
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Saving...";
+      }
+
+      if (db) {
+        const result = await db.from("resources").insert([resource]);
+
+        if (result.error) {
+          throw result.error;
+        }
+      } else {
+        const resources = getLocalData("studysync_resources");
+        resources.unshift({
+          ...resource,
+          created_at: new Date().toISOString()
+        });
+        saveLocalData("studysync_resources", resources);
+      }
+
+      resourceForm.reset();
+      await loadResources();
+      alert("Resource added successfully.");
+    } catch (error) {
+      console.error("Could not save resource:", error);
+      alert("Could not save resource: " + error.message);
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText || "Add Resource";
+      }
+    }
+  });
+}
+
 async function loadResources() {
   const container = document.getElementById("customResourcesList");
 
@@ -433,9 +500,22 @@ async function loadResources() {
 
     container.innerHTML = "";
 
+    if (resources.length === 0) {
+      container.innerHTML =
+        '<p class="task-meta" style="grid-column: 1 / -1; text-align: center; padding: 20px;">No resources added yet.</p>';
+      return;
+    }
+
     resources.forEach(function (resource) {
       const card = document.createElement("article");
       card.className = "resource-card card-lift";
+
+      const notesText = resource.notes || "No notes provided.";
+      const fileText = resource.file_url
+        ? '<p class="small-text" style="margin-top:10px;"><strong>File:</strong> ' +
+          escapeHtml(resource.file_url) +
+          "</p>"
+        : "";
 
       card.innerHTML =
         '<div class="panel-title">' +
@@ -445,13 +525,16 @@ async function loadResources() {
         "</span>" +
         "</div>" +
         '<p class="resource-meta">' +
-        escapeHtml(resource.notes) +
-        "</p>";
+        escapeHtml(notesText) +
+        "</p>" +
+        fileText;
 
       container.appendChild(card);
     });
   } catch (error) {
-    console.error(error);
+    console.error("Could not load resources:", error);
+    container.innerHTML =
+      '<p class="task-meta" style="grid-column: 1 / -1; text-align: center; padding: 20px;">Could not load resources from Supabase.</p>';
   }
 }
 
